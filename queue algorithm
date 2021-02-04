@@ -1,0 +1,31 @@
+last = [] #final position in queue
+queue = list(range(1, last + 1))
+
+while True:
+    print("\nExist %d clients in this queue" % len(queue))
+    print("Current queue:", queue)
+    print("Press F to add client in queue")
+    print("or A for attended")
+    
+    operation = input("Operation (F, A or E): ")
+    #remove a client from queue
+    if operation == "A":
+        if (len(queue)) > 0:
+            attended = queue.pop(0)
+            print("Client % attended" % attended)
+        else:
+            print("empty queue!")
+    #add a client in queue
+    elif operation == "F":
+        last += 1
+        queue.append(last)
+    #close system
+    elif operation == "E":
+        break
+    else:
+    #if user take a missclick ou type another thing this dont break the system
+        try:
+            print("Invalid operation! only (F, A or E)\nDescription: F to add client\nA to server a customer\nE to exit")
+            operation
+        except:
+            ValueError
